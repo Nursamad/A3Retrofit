@@ -8,7 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.geektech.a3.data.models.Film;
+import com.geektech.a3.databinding.ItemDetailBinding;
 import com.geektech.a3.databinding.ItemFilmBinding;
+import com.geektech.a3.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.List;
 public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.ViewHolder> {
 
     private List<Film> films = new ArrayList<>();
+    private OnItemClickListener onItemClickListener;
 
     public void setFilms(List<Film> films) {
         this.films = films;
@@ -51,8 +54,23 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.ViewHolder> 
 
         public void onBind(Film film) {
             binding.titleTv.setText(film.getTitle());
-            binding.descTv.setText(film.getDescription());
+            binding.releaseTv.setText(film.getReleaseDate());
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickListener.onClick(getAdapterPosition());
+
+                }
+            });
         }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public Film getItem(int position) {
+        return films.get(position);
     }
 }

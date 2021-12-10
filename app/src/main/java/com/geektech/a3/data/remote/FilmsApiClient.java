@@ -29,4 +29,18 @@ public class FilmsApiClient {
         });
     }
 
+    public void getFilmById(FilmByIdCallback filmByIdCallback, String id) {
+        App.api.getFilmById(id).enqueue(new Callback<Film>() {
+            @Override
+            public void onResponse(Call<Film> call, Response<Film> response) {
+                filmByIdCallback.successById(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Film> call, Throwable t) {
+                filmByIdCallback.failure(t.getLocalizedMessage());
+            }
+        });
+    }
+
 }

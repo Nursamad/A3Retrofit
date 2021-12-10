@@ -2,14 +2,22 @@ package com.geektech.a3.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable   {
 
     String id;
+
     String title;
     String description;
-
+    String director;
+    String producer;
     @SerializedName("original_title")
     String originalTitle;
+    @SerializedName("release_date")
+    String releaseDate;
+
+
 
     public String getId() {
         return id;
@@ -42,4 +50,34 @@ public class Film {
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirection(String director) {
+        this.director = director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+
 }
