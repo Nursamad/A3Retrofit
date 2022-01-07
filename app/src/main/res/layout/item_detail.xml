@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startTop"
@@ -11,12 +11,14 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="10dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startBegin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="24dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startEnd"
         android:layout_width="0dp"
@@ -25,15 +27,23 @@
         app:layout_constraintGuide_end="24dp" />
 
 
+    <ImageView
+        android:id="@+id/film_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="@id/startBegin"
+        app:layout_constraintTop_toTopOf="@id/startTop" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="26sp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/startBegin"
-        app:layout_constraintTop_toTopOf="@id/startTop"
+        app:layout_constraintTop_toBottomOf="@id/film_iv"
         tools:text="Title: Castle in the Sky" />
 
 
@@ -88,13 +98,13 @@
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="italic"
-        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@id/startEnd"
         app:layout_constraintStart_toEndOf="@id/startBegin"
         app:layout_constraintTop_toBottomOf="@id/realiseData"
-        app:layout_constraintEnd_toEndOf="@id/startEnd"
         tools:text="Description: The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,8 +16,16 @@ public class Film implements Serializable   {
     String originalTitle;
     @SerializedName("release_date")
     String releaseDate;
+    @SerializedName("movie_banner")
+    String movieBanner;
 
+    public String getMovieBanner() {
+        return movieBanner;
+    }
 
+    public void setMovieBanner(String movieBanner) {
+        this.movieBanner = movieBanner;
+    }
 
     public String getId() {
         return id;
